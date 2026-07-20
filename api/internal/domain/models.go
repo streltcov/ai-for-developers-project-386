@@ -25,3 +25,9 @@ type AvailableSlot struct {
 	StartTime time.Time `json:"startTime"`
 	EndTime   time.Time `json:"endTime"`
 }
+
+type AvailabilityResponse struct {
+	EventTypeID int32          `json:"eventTypeId"`
+	Duration    int32          `json:"duration"`
+	Slots       []AvailableSlot `json:"slots"`
+}
