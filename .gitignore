@@ -1,0 +1,5 @@
+api/booking.db
+api/booking.db-shm
+api/booking.db-wal
+bin/
+.opencode/
