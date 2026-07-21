@@ -1,7 +1,8 @@
 import { MantineProvider } from '@mantine/core'
 import { Notifications } from '@mantine/notifications'
 import { DatesProvider } from '@mantine/dates'
-import { Text, Title, Container, Stack } from '@mantine/core'
+import { Container } from '@mantine/core'
+import { BookingPage } from './components/BookingPage'
 
 function App() {
   return (
@@ -9,10 +10,7 @@ function App() {
       <DatesProvider settings={{ locale: 'ru', firstDayOfWeek: 1 }}>
         <Notifications />
         <Container size="md" py="xl">
-          <Stack gap="lg">
-            <Title order={1}>Call Booking</Title>
-            <Text c="dimmed">Сервис бронирования звонков</Text>
-          </Stack>
+          <BookingPage />
         </Container>
       </DatesProvider>
     </MantineProvider>
