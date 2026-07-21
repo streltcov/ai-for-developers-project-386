@@ -32,6 +32,10 @@ func (h *Handler) Routes() chi.Router {
 	r.Use(middleware.Recoverer)
 	r.Use(middleware.Compress(5))
 
+	r.Get("/", func(w http.ResponseWriter, _ *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
+
 	r.Route("/api/public", func(r chi.Router) {
 		r.Get("/event-types", h.publicListEventTypes)
 		r.Get("/availability", h.getAvailability)
