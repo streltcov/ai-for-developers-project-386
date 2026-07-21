@@ -24,7 +24,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to initialize repository: %v", err)
 	}
-	defer repo.Close()
+	defer func() { _ = repo.Close() }()
 
 	h := handler.New(repo)
 	addr := ":" + port

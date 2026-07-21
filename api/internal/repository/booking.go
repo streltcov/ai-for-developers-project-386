@@ -62,7 +62,7 @@ func (r *Repository) ListBookings(from, to *time.Time, eventTypeID *int32) ([]do
 	if err != nil {
 		return nil, fmt.Errorf("list bookings: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var bookings []domain.Booking
 	for rows.Next() {
@@ -93,7 +93,7 @@ func (r *Repository) GetBookingsByEventAndRange(eventTypeID int32, from, to time
 	if err != nil {
 		return nil, fmt.Errorf("get bookings by event and range: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var bookings []domain.Booking
 	for rows.Next() {

@@ -45,7 +45,7 @@ func (r *Repository) ListEventTypes() ([]domain.EventType, error) {
 	if err != nil {
 		return nil, fmt.Errorf("list event_types: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	var eventTypes []domain.EventType
 	for rows.Next() {
