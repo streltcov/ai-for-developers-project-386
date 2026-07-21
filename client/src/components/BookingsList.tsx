@@ -25,7 +25,7 @@ export function BookingsList() {
     <Stack gap="md">
       <Title order={3}>Предстоящие встречи</Title>
 
-      {bookings.length === 0 ? (
+      {(!bookings || bookings.length === 0) ? (
         <Text c="dimmed">Нет предстоящих бронирований</Text>
       ) : (
         <Table striped highlightOnHover>

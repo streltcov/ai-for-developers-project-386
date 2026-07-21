@@ -64,7 +64,7 @@ func (r *Repository) ListBookings(from, to *time.Time, eventTypeID *int32) ([]do
 	}
 	defer func() { _ = rows.Close() }()
 
-	var bookings []domain.Booking
+	bookings := make([]domain.Booking, 0)
 	for rows.Next() {
 		var b domain.Booking
 		if err := rows.Scan(
@@ -95,7 +95,7 @@ func (r *Repository) GetBookingsByEventAndRange(eventTypeID int32, from, to time
 	}
 	defer func() { _ = rows.Close() }()
 
-	var bookings []domain.Booking
+	bookings := make([]domain.Booking, 0)
 	for rows.Next() {
 		var b domain.Booking
 		if err := rows.Scan(

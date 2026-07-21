@@ -47,7 +47,7 @@ func (r *Repository) ListEventTypes() ([]domain.EventType, error) {
 	}
 	defer func() { _ = rows.Close() }()
 
-	var eventTypes []domain.EventType
+	eventTypes := make([]domain.EventType, 0)
 	for rows.Next() {
 		var et domain.EventType
 		if err := rows.Scan(&et.ID, &et.Name, &et.Description, &et.Duration); err != nil {

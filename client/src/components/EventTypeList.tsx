@@ -22,7 +22,7 @@ export function EventTypeList({ onSelect }: Props) {
 
   if (loading) return <Loader />
   if (error) return <Text c="red">{error}</Text>
-  if (types.length === 0) return <Text c="dimmed">Нет доступных типов событий</Text>
+  if (!types || types.length === 0) return <Text c="dimmed">Нет доступных типов событий</Text>
 
   return (
     <Stack gap="md">

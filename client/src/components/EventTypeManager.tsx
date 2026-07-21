@@ -77,7 +77,7 @@ export function EventTypeManager() {
         <Button onClick={openCreate}>+ Создать</Button>
       </Group>
 
-      {types.length === 0 ? (
+      {(!types || types.length === 0) ? (
         <Text c="dimmed">Нет типов событий</Text>
       ) : (
         <Table striped highlightOnHover>
